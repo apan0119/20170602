@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <input type="button" name="" value="设置">
+    <input type="button" name="" value="读取">
+    <input type="button" name="" value="删除">
+    <input type="text" name="" value="">
+</body>
+<script>
+    var Btn = document.getElementsByTagName("input");
+    Btn[0].onclick = function() {
+        localStorage.setItem('name', Btn[3].value);
+        localStorage.setItem('age', 18);
+    }
+    Btn[1].onclick = function() {
+        console.log(localStorage.getItem('name') + "\n")
+        console.log(localStorage.getItem('age'))
+    }
+    Btn[2].onclick = function() {
+        localStorage.clear()
+    }
+</script>
+
+</html>

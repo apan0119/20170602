@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <input type="checkbox" name="" value="睡觉">睡觉</br>
+    <input type="checkbox" name="" value="睡觉">睡觉</br>
+    <input type="checkbox" name="" value="再睡觉">在睡觉</br>
+    <input type="checkbox" name="" value="还睡觉">还睡觉</br>
+    <input type="checkbox" name="" value="休息吧">休息吧</br>
+</body>
+<script>
+     var oInput = document.getElementsByTagName('input');
+    for (var i = 0; i < oInput.length; i++) {
+        oInput[i].onclick = function() {
+            if (this.checked) {
+                localStorage.setItem('addShop', this.value);
+            } else {
+                localStorage.setItem('rmShop', this.value);
+            }
+        }
+    }
+    window.addEventListener('storage', function(ev) {
+        console.log(ev)
+        if (ev.key == 'addShop') {
+            for (var i = 0; i < oInput.length; i++) {    
+                if (ev.newValue == oInput[i].value) {
+                    oInput[i].checked = true;
+                }
+            }
+        } else if (ev.key == 'rmShop') {
+            for (var i = 0; i < oInput.length; i++) {
+                if (ev.newValue == oInput[i].value) {
+                    oInput[i].checked = false;
+                }
+            }
+        }
+    })
+</script>
+</html>
